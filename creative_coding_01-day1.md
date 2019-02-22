@@ -1,4 +1,4 @@
-# Creative Coding for Beginners: Day 1
+# Creative Coding in Processing: Day 1
 
 ## Agenda
 
@@ -11,9 +11,10 @@
 
 ## Welcome to Creative Coding I
 
+![](images/Welcome.png)
 
-
-* You know "the future" is not code, it is **NOW**.
+* You are a beginner, adventurous, up for a challenge.
+* You know coding is not "the future", it is **NOW**.
 * You also know that understanding code isn't just for professional programmers and software developers. It's for everyone.
 * You know that programming and software development are as an essential part of literacy in the modern era as reading and writing.
 * You know it's not just about getting $#!7 done, but expressing who we are and what we experience.
@@ -22,7 +23,7 @@
 
 ## Who Am I
 
-
+![](images/phillipstearns.png)
 
 I'm [Phillip David Stearns](https://phillipstearns.com). I wear a lot of different hats. Mostly, I'm an artist.
 
@@ -33,11 +34,11 @@ I know a little bit about:
 * Physical Computing
 * Hacking (hardware/software/security)
 * Textile Design and Weaving
-* 3D animation and rendering
+* 3D Animation and Rendering
 * Welding
 * Printmaking (2D, 3D, laser cutting/engraving/etching/bleaching)
 * Photography
-* Breadmaking
+* Bread Making
 
 ## What is Creative Coding?
 
@@ -58,7 +59,7 @@ Broadly, art made with computers and computer programs, including (yes, perhaps 
 
 ### Algorithmic Art
 
-![](images/fractalart.jpg)
+![](images/fractalArt.jpg)
 
 Art made with computers, but specifically using algorithms.
 
@@ -72,7 +73,6 @@ if (creation && object of art && algorithm && one's own algorithm) {
 }
 // Jean-Pierre Hébert
 ```
-
 
 ### Generative Art
 
@@ -123,7 +123,7 @@ Processing programs are called sketches.
 
 
 ```
-ellipse(50,50,25,25);
+ellipse(50, 50, 25, 25);
 print("Hello World!");
 ```
 
@@ -139,14 +139,14 @@ Congratulations! You wrote your first Processing program!
 
 * Code is executed one line at a time, one operation at a time.
 * *Generally*, code is read top to bottom. There are cases when we jump from one part of our program to another, which we'll cover later.
-* Operations follow a [specific order](https://introcs.cs.princeton.edu/java/11precedence/):
+* Operations follow a [specific order](https://introcs.cs.princeton.edu/java/11precedence/). This order of precedence handles not only things like "multiply before adding", but also when to assign the shiny new value to a variable. 
 
 
 ### Structure: Functions
 
-Code can contain hard coded data, like the text `"Hello World"`. Data in Processing has a number of types. For text `char` stores individual characters, and `String` stores strings of chars.
+Programs can contain hard coded data, like the text `"Hello World"` or the numbers in the `ellipse()` function. Data in Processing has a number of different types. For text `char` stores individual characters, and `String` stores strings of chars.
 
-`ellipse()` and `print()` is a function. Functions are references to more complex blocks of code tucked away somewhere else. We can run these blocks of code by calling a function like we did in our `HelloWorld` sketch.
+`ellipse()` and `print()` is a function. Functions are references to more complex blocks of code tucked away somewhere else. We can run these blocks of code by calling a function like we did in our `HelloWorld` sketch. Processing's built-in functions can be viewed only by looking at its code.
 
 Functions like `ellipse()` will accept and in some cases require parameters or arguments to be provided in the `()`. In the case of the `ellipse()` function, it expects the x and y coordinates of the ellipse, in addition to the width and height.
 
@@ -277,7 +277,7 @@ void draw(){
 
 You may have noticed that we've introduced a couple of new functions. Here are a few functions that are essential for styling the elements in our sketch:
 
-<h3>function		|	<h3>description
+function		|	description
 :---				|:---
 `background()`	| set the background color using a color datatype
 `stroke()`		| set the stroke or line color using a color datatype
@@ -431,7 +431,7 @@ void draw() {
 
 Now we're getting dangerous!
 
-## Formal Elements of Art in Processing
+## Formal Elements of Art in Processing Pt. 1
 
 Processing was made with artists in mind, so let's have a look at how the built in functions give us the ability to create using basic formal elements of art.
 
@@ -451,9 +451,9 @@ Then we'll take a few moments to play and draw different shapes
 * In multiples, can be powerful
 * Density can suggest form, shape, tone, line, texture
 
-<h3>function	|	<h3>description
-:---			|:---
-`point(x, y`	|	a single point
+function	|	description
+:---					|:---
+`point(x, y`			|	a single point
 
 ### Line
 
@@ -464,7 +464,7 @@ Then we'll take a few moments to play and draw different shapes
 * The quality of the line and its characteristics hold its expressiveness
 * Can suggest shape, movement, contour
 
-<h3>function	|	<h3>description
+function	|	description
 :---					|:---
 `line(x1, y1, x2, y2)`					|	a straight line between two points
 `curve(c1x, c1y, x1, y1, x2, y2, c2x, c2y)`				|	a curve described by four points:<br>1. Control Point for Beginning<br>2. Beginning<br>3. End<br>4. Control Point for End
@@ -475,19 +475,53 @@ Then we'll take a few moments to play and draw different shapes
 ![](images/Sophie_Taeuber-Arp.jpg)
 <br>Sophie Taeuber-Arp
 
-<h3>function	|	<h3>description
-:---			|:---
-`ellipse()`	|	ellipse or circle
-`circle()`	|	circle
-`arc()`		|	arc, or partial circle/ellipse
-`rect()`		|	rectangle or square
-`square()`	|	square
-`tringle()` 	|	triangle
-`quad()`		|	a four sided polygon
+function	|	description
+:---					|:---
+`ellipse()`			|	ellipse or circle
+`circle()`			|	circle
+`arc()`				|	arc, or partial circle/ellipse
+`rect()`				|	rectangle or square
+`square()`			|	square
+`tringle()` 			|	triangle
+`quad()`				|	a four sided polygon
 
 * can be a region enclosed by a line, consisting solely of the line
 * can be a region of color or texture that is distinct
 * can be suggested by other elements
+
+---
+
+## Let's Take a Moment to Play!
+
+### 1. Draw one of each of these primitives
+
+* `point()`
+* `arc()`
+* `ellipse()`
+* `circle()`
+* `square()`
+* `rect()`
+* `quad()`
+* `line()`
+* `curve()` or `bezier()`
+* `triangle()`
+
+### 2. Style each primitive uniquely
+
+* `background()`
+* `stroke()`
+* `strokeWeight()`
+* `noStroke()`
+* `fill()`
+* `noFill()`
+
+### 3. Draw a face?
+
+### 4. Save Your Work!
+
+---
+
+## Formal Elements of Art in Processing Pt. 1
 
 ### Form
 
@@ -499,10 +533,10 @@ Pertains to the shape of objects in three dimensions.
 * Can be suggested by other elements
 * Oftentimes a 3D model in computer generated art
 
-<h3>function		|	<h3>description
-:---				|:---
-box()				| 3D Cuboid
-sphere()			| 3D Spheroid
+function		|	description
+:---						|:---
+box()						| 3D Cuboid
+sphere()					| 3D Spheroid
 
 \*must be using the 3D rendering engine, e.g. `size(500, 500, P3D)`
 
@@ -541,8 +575,90 @@ By repeating a texture, shapes, lines, or tones and colors, one can create a pat
 
 ### Composition
 
+Analyzing a composition...
+
 ![](images/analysis.jpg)
+
+...is kinds of like analyzing stocks.
 
 ![](images/stock-analysis.jpg)
 
 Jokes aside, composition is the result of these different elements coming together in a work of art. Generally, it's how an artwork utilizes space.
+
+## Repetition: Loops and Arrays
+
+![](images/loops.gif)
+
+### `draw()` is a loop
+
+* by default, `draw()` is executed at 60 frames per second
+* anything in `draw()` is repeated
+
+### For loop
+
+1. Create a new sketch (save your old one)
+2. Run the following code
+
+```
+for ( int = i ; i < 100; i++) {
+	println(i);
+}
+```
+
+#### For Loop Structure
+
+The for loop looks kind of like a function:
+
+* The code inside `()` sets the conditions for when the loop exits
+	1. 	`int i = 0` initializes the integer, `i`, which is used as an index or counter
+	2. `i < 100` is a conditional expression that evaluates to true or false. If true, the loop keeps going.
+	3. `i++` is shorthand for `i = i + 1`. This increments the counter by one step
+* The code inside the `{}` is executed once per loop and can contain other for loops!
+* If we want to exit from a for loop, we can can use `return`.
+
+#### Application of a For Loop
+
+Let's say we wanted to draw a row of 5 squares to the canvas, equally spaced...
+
+```
+// we'll use variables instead of hard coding things
+
+// spacing between squares
+float squareSpacing;
+
+// where to start drawing the row of squares
+float rowX;
+float rowY;
+
+// the width of our squares
+float squareWidth = 50;
+// how many
+float qty_squares = 25;
+
+void setup() {
+  
+  size(500, 500);
+  background(255);
+  
+  squareSpacing = width / (qty_squares + 1);
+  rowX = squareSpacing;
+  rowY = height / 2;
+  
+}
+
+void draw() {
+  
+  background(255);
+  
+  // by default the rect and square dsraw from their upper right
+  // drawing from center can help simplify things for us
+  rectMode(CENTER);
+  
+  
+  for (int i = 0; i < qty_squares; i++) {
+    // each time the for loop executes, a square is drawn
+    square(rowX + (i * squareSpacing), rowY, squareWidth);
+  }
+  
+}
+```
