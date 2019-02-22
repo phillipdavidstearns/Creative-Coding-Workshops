@@ -585,7 +585,7 @@ Analyzing a composition...
 
 Jokes aside, composition is the result of these different elements coming together in a work of art. Generally, it's how an artwork utilizes space.
 
-## Repetition: Loops and Arrays
+## Repetition: Loops
 
 ![](images/loops.gif)
 
@@ -650,7 +650,7 @@ void draw() {
   
   background(255);
   
-  // by default the rect and square dsraw from their upper right
+  // by default the rect and square draw from their upper right
   // drawing from center can help simplify things for us
   rectMode(CENTER);
   
@@ -658,6 +658,117 @@ void draw() {
   for (int i = 0; i < qty_squares; i++) {
     // each time the for loop executes, a square is drawn
     square(rowX + (i * squareSpacing), rowY, squareWidth);
+  }
+  
+}
+```
+## Repetition: Arrays and Loops
+
+An array lets us store multiple values of a single type.
+
+* An array can be made of any type supported by Processing
+* Arrays are declared and accessed using `[]`
+
+### Declaring an Array (method 1)
+
+```
+int[] wholeNumbers = new int[10];
+```
+
+The above creates an array that can hold 10 whole numbers, named "wholeNumbers".
+
+* `int` is the data type
+* `[]` specifies that we're declaring an array
+* `wholeNumbers` is the name of the array
+* ` = new int[10]` initializes the array to a length of 10
+* Ideally, arrays are named as plural since they contain multiples.
+
+### Declaring an Array (method 2)
+
+```
+int[] wholeNumbers = { 23, 50, 13, 62, 41 };
+```
+
+The above creates an array that hols the 5 whole numbers specified.
+
+* If we know the values ahead of time, we can hard code them into the array
+* The array length cannot change
+* The array values can be changed
+
+### Accessing an Array
+
+The following code demonstrates how we work with arrays:
+
+```
+// initialize an array of integers
+int[] wholeNumbers = { 23, 50, 13, 62, 41 };
+
+// print the array
+for (int i = 0 ; i < wholeNumbers.length ; i++) {
+	print(wholeNumbers[i]+" ");
+}
+println();
+
+// sort the array
+wholeNumbers=sort(wholeNumbers);
+
+// print the array
+for (int i = 0 ; i < wholeNumbers.length ; i++) {
+	print(wholeNumbers[i]+" ");
+}
+println();
+
+// add the 2nd and 3rd elements and store the result in the first
+wholeNumbers[0] = wholeNumbers[1] + wholeNumbers[2];
+
+// print the array
+for (int i = 0 ; i < wholeNumbers.length ; i++) {
+	print(wholeNumbers[i]+" ");
+}
+println();
+
+```
+
+### Arrays Applied
+
+Let's modify the code that drew our squares in a row, but this time, let's use an array to hold different sizes.
+
+```
+// we'll use variables instead of hard coding things
+
+// spacing between squares
+float squareSpacing;
+
+// where to start drawing the row of squares
+float rowX;
+float rowY;
+
+// the width of our squares
+float squareWidths[] = { 23, 50, 13, 62, 41 };
+
+
+void setup() {
+  
+  size(500, 500);
+  background(255);
+  
+  squareSpacing = width / (squareWidths.length + 1);
+  rowX = squareSpacing;
+  rowY = height / 2;
+  
+}
+
+void draw() {
+  
+  background(255);
+  
+  // by default the rect and square draw from their upper right
+  // drawing from center can help simplify things for us
+  rectMode(CENTER);
+  
+  for (int i = 0; i < squareWidths.length; i++) {
+    // each time the for loop executes, a square is drawn
+    square(rowX + (i * squareSpacing), rowY, squareWidths[i]);
   }
   
 }
