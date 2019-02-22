@@ -1,9 +1,16 @@
 // we'll use variables instead of hard coding things
+
+// spacing between squares
 float squareSpacing;
+
+// where to start drawing the row of squares
 float rowX;
 float rowY;
+
+// the width of our squares
 float squareWidth = 50;
-float qty_squares = 5;
+// how many
+float qty_squares = 25;
 
 void setup() {
   
@@ -24,7 +31,9 @@ void draw() {
   // drawing from center can help simplify things for us
   rectMode(CENTER);
   
+  
   for (int i = 0; i < qty_squares; i++) {
+    // each time the for loop executes, a square is drawn
     square(rowX + (i * squareSpacing), rowY, squareWidth);
   }
   
