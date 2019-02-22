@@ -600,8 +600,8 @@ Jokes aside, composition is the result of these different elements coming togeth
 2. Run the following code
 
 ```
-for ( int = i ; i < 100; i++) {
-	println(i);
+for ( int i = 0 ; i < 100; i++) {
+  println(i);
 }
 ```
 
