@@ -42,7 +42,7 @@ I know a little bit about:
 
 ## What is Creative Coding?
 
-![](images/creativeCoding.png)
+![](images/zachlieberman.gif)
 
 Creative Coding is a term that applies broadly to the use of code to solve problems traditionally dealt with in the creative disciplines of art and design.
 
@@ -87,6 +87,11 @@ Art made with autonomous systems. Predates computer art with early examples foun
 <br>Sougwen Chung
 
 The use of embedded computation to influence physical objects with code.
+
+### Installations and Performances
+
+![](images/nonotak.gif)
+
 
 ## Getting to Know Processing
 
@@ -773,3 +778,27 @@ void draw() {
   
 }
 ```
+
+## Creative Challenge
+
+
+![](images/coding_copypaste.png)
+
+We're ready to challenge ourselves! Let's see how far we can get with our under standing of Processing on the first day!
+
+1. Find a work of art that was created without the use of computers.
+2. Do a basic formal analysis of its elements.
+3. Translate the elements into Processing functions and proceedures.
+4. Attempt to recreate that artwork or style.
+
+### Easy Challenge: Sol Lewitt
+
+![](images/sol-lewitt.jpg)
+
+### Fun Challenge: Bridget Riley
+
+![](images/Bridget-Riley_02.jpg)
+
+### Ultimate Challenge: Wassily Kandinsky
+
+![](images/kandinsky.jpg)
