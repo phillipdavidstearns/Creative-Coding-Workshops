@@ -27,7 +27,7 @@ void draw() {
   // calculate how many parallelograms to draw vertically
   int qty_rows = int(height/(quadSideHeight))+4;
   // calculate how many parallelograms to draw horizontally
-  int qty_cols = int(height/(quadSideHeight))+4;
+  int qty_cols = int(width/(quadWidth))+1;
   
   // draw the "grid" of parallelograms!
   for (int y = 0; y < qty_rows; y++) {

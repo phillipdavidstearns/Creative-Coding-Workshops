@@ -46,8 +46,8 @@ void draw() {
   line(x1, y1, x2, y2);
 }
 
-void mousePressed(){
-  centerX=random(width);
-  centerY=random(height);
+void mouseReleased(){
+  centerX=mouseX;
+  centerY=mouseY;
   strokeColor=color(0, 0, random(256));
 }
