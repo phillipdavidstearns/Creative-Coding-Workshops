@@ -14,7 +14,7 @@ float quadSkew=50;
 
 void setup() {
   
-  size(640, 480);
+  size(900, 600);
   noLoop();
   
 }

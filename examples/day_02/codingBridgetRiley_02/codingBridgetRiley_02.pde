@@ -18,7 +18,7 @@ float quadWidth=30;
 float quadSkew=30;
 
 void setup() {
-  size(640, 480);
+  size(900, 600);
 }
 
 void draw() {

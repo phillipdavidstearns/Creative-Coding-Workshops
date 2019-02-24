@@ -19,7 +19,7 @@ float quadSkew=50;
 
 void setup() {
   
-  size(640, 480);
+  size(900, 600);
   noLoop();
   
 }
@@ -29,7 +29,7 @@ void draw() {
   // calculate how many parallelograms to draw vertically
   int qty_rows = int(height/(quadSideHeight))+4;
   
-  // draw a column of prarllelograms!
+  // draw a column of parllelograms!
   for (int y = 0; y < qty_rows; y++) {
     
     color fillColor = color(random(256), random(256), random(256));
