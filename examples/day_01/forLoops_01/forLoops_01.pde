@@ -10,7 +10,7 @@ float rowY;
 // the width of our squares
 float squareWidth = 50;
 // how many
-float qty_squares = 25;
+float qty_squares = 5;
 
 void setup() {
   
