@@ -372,6 +372,7 @@ We've already had a sneak peek into how to do this in the row by row iteration e
 3. We then need to write the sorted array back into the place we got the row from. That's why there are two for loops iterating through the x or width.
 
 ![](images/rowsort.png)
+
 ```
 PImage img;
 
