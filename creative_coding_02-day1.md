@@ -24,7 +24,7 @@ In the following year, mentions of pixel sorting appear in the Processing forums
 
 ![](images/asendorf.png)
 
-In 2012 on October 5th, Kim Asendorf published his source code for [ASDFPixelSort](https://github.com/kimasendorf/ASDFPixelSort) on github along with a companion post on [tumblr](http://kimasendorf.tumblr.com/post/32936480093/processing-source-code).
+In 2012 on October 5th, Kim Asendorf published his source code for [ASDFPixelSort](https://github.com/kimasendorf/ASDFPixelSort) on GitHub along with a companion post on [tumblr](http://kimasendorf.tumblr.com/post/32936480093/processing-source-code).
 
 In 2013 Jeff Thompson began working on his own extended studies of pixel sorting, published on his [GitHub](https://github.com/jeffThompson/PixelSorting) account.
 
@@ -175,7 +175,7 @@ Full reference for the PImage class can be found [here](https://processing.org/r
 
 ![](images/PImage_00.png)
 
-Instead of using the syntax `Pimage myImage = new PImage();`, we initialize PImage objects using `createImage()` or `loadImage()`.
+Instead of using the syntax `PImage myImage = new PImage();`, we initialize PImage objects using `createImage()` or `loadImage()`.
 
 1. Start a new Processing sketch. Save it and go to its containing folder.
 2. Create a new folder called '"images".
@@ -233,7 +233,7 @@ If you want to maintain aspect ratio using a "scale to fill" method, you have to
 
 #### Scale to Fit (example PImage_02)
 
-If you want to maintain aspect ratio using a "scale to filt" method, the math is almost exactly the same except one operator is "flipped". Can you guess which one?
+If you want to maintain aspect ratio using a "scale to fit" method, the math is almost exactly the same except one operator is "flipped". Can you guess which one?
 
 ### Resizing the window (example PImage_03)
 
@@ -324,7 +324,7 @@ for (int y = 0; y < img.height; y++) {
 
 Woah... hold up! We're already sorting?
 
-## OK... Sorting! (example pixelSort_00)
+## Sorting! (example pixelSort_00)
 
 We're probably over prepared for this, but at least you're in a better position to understand exactly what's going on with the PImage code. Without going too deep into the plethora of sorting algorithms, let's setup our first pixel sorting sketch.
 
@@ -362,6 +362,12 @@ You should get something like this:
 ![](images/sorted.png)
 
 ## Sorting on Row by Row (example pixelSort_01)
+
+We've already had a sneak peek into how to do this in the row by row iteration example.
+
+1. The idea is that we iterate through `img.pixels[]`, one row at a time using the outer for loop that increments our y or height. Each time, we grab as many pixels as the image is wide, and store them in a temporary array of the same size.
+2. This line of code, `row = sort(row);`, sorts the values from lowest to highest.
+3. We then need to write the sorted array back into the place we got the row from. That's why there are two for loops iterating through the x or width.
 
 ![](images/rowsort.png)
 ```
@@ -402,6 +408,10 @@ void sortRows(PImage _image) {
 ```
 
 ## Sorting on Column by Column (example pixelSort_02)
+
+The idea is the same as sorting row by row, but we have to swap y for x, iterating through the columns and manipulating the pixels long the y axis.
+
+Note: in addition to sorting, we can also reverse the values in the array. It's useful for flipping an image horizontally and vertically as well as changing the direction of our sort.
 
 ![](images/colsort.png)
 
@@ -444,5 +454,91 @@ void sortCols(PImage _image) {
 
 ```
 
-## Moar Granulatrity PLZ!
+## Put It All Together (example pixelSort_03)
+
+We can now perform these to operations back to back. Sorting the rows and then sorting the columns. I've modified the `sortRows()` and `sortCols()` functions to make them more modular. The for loops for getting and writing the pixels can be used in more places that just within our sort function. Because of this, I've abstracted then into `getImgRow()`, `setImgRow()`, `getImgCol()`, `setImgCol()`. This helps keep our code flexible for future expansion of functionality.
+
+![](images/rowcolsort.png)
+
+```
+PImage img;
+
+void setup() {
+  size(100, 100);
+  surface.setResizable(true);
+  img = loadImage("images/windows_xp_bliss-wide.jpg");
+  surface.setSize(img.width, img.height);
+  noLoop();
+}
+
+void draw() {
+  sortImgRows(img);
+  sortImgCols(img);
+  image(img, 0, 0);
+}
+
+///////////////////////////////////////////////////////
+// row Sorting
+
+void sortImgRows(PImage _image) {
+  _image.loadPixels();
+  for (int y = 0; y < img.height; y++) {
+    setImgRow( y, sort( getImgRow( y, _image ) ), _image );
+  }
+  _image.updatePixels();
+}
+
+color[] getImgRow(int _y, PImage _image) {
+  color[] px = new color[_image.width];
+  for (int x = 0; x < img.width; x++) {
+    px[x] = img.pixels[ _y * width + x ];
+  }
+  return px;
+}
+
+void setImgRow(int _y, color[] _pixels, PImage _image) {
+  for (int x = 0; x < _image.width; x++) {
+    _image.pixels[ _y * width + x ]= _pixels[x];
+  }
+}
+
+///////////////////////////////////////////////////////
+// column Sorting
+
+void sortImgCols(PImage _image) {
+  _image.loadPixels();
+  for (int x = 0; x < img.width; x++) {
+    setImgCol( x, sort( getImgCol( x, _image ) ), _image );
+  }
+  _image.updatePixels();
+}
+
+color[] getImgCol(int _x, PImage _image) {
+  color[] px = new color[_image.height];
+  for (int y = 0; y < img.height; y++) {
+    px[y] = img.pixels[ y * width + _x ];
+  }
+  return px;
+}
+
+void setImgCol(int _x, color[] _pixels, PImage _image) {
+  for (int y = 0; y < _image.height; y++) {
+    _image.pixels[ y * width + _x ]= _pixels[y];
+  }
+}
+```
+
+## Adding Interactive Controls: Key Bindings
+
+Already, we have quite a few options to explore:
+
+1. Sorting the Rows before Columns
+2. Sorting the Columns before Rows
+3. Reversing the sort order/direction
+
+Let's add some controls that will allow us to play with these options. To do this, we'll need to think about:
+
+1. Resetting the image
+2. Detecting key presses and setting flags
+3. Structuring our code so that these combinations can be explored
 
