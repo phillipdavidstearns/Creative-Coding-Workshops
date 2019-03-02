@@ -123,10 +123,12 @@ class Object{
 	
 	// constructor
 	Object(){
+		field = 0;
 	}
 	
 	// methods
-	void method();
+	void method(){
+	}
 	
 }
 
