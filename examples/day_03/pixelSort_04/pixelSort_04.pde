@@ -1,3 +1,7 @@
+// demostrating how abstraction simplifies code
+// using a boolean variable to select sorting direction
+// using key bindings to set boolean variable "flags"
+
 PImage img;
 boolean reverseRowSort = false;
 
@@ -6,7 +10,7 @@ void setup() {
   surface.setResizable(true);
   img = loadImage("images/windows_xp_bliss-wide.jpg");
   surface.setSize(img.width, img.height);
-  //noLoop();
+  noLoop();
 }
 
 void draw() {
@@ -14,19 +18,10 @@ void draw() {
   image(img, 0, 0);
 }
 
-
-void sortAllThePixels(PImage _image) {
-  _image.loadPixels();
-  _image.pixels=sort(_image.pixels);
-  _image.updatePixels();
-}
-
 ////////////////////////////////////////////////////////////
 // sortRows()
 
 void sortRows(PImage _image) {
-
-  color[] row = new color[img.width];
 
   _image.loadPixels();
 
@@ -64,6 +59,7 @@ void keyPressed(){
   switch(key){
     case 'r':
     reverseRowSort = !reverseRowSort;
+    redraw();
     break;
   }
 }
