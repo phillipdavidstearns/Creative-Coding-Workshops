@@ -125,7 +125,44 @@ void setImageRegion(float _x, float _y, PImage _source, PImage _destination) {
 }
 ```
 
+Awesome! We have one "tile", a region where we've copied pixels from one place, and pasted them into another. This is how it typically goes: you make incremental steps toward a complex goal, tackling the mechanics on a singular level and then scaling them up. Kind of like the relationship between high energy physics and astro physics.
 
+## Making a Grid
+
+Before we can do more complicated things with out copy/paste framework, we should have a look at how it scales across the image. The simplest way to do that is to copy and paste in a grid pattern. We'll add to out sketch code that calculates a grid and then iterates our process over it.
+
+```
+// these are global variables
+int gridSizeX;
+int gridSizeY;
+int gridOffsetX;
+int gridOffsetY;
+
+// this goes in setup()
+gridSizeX = int(width/float(size))+1;
+gridSizeY = int(height/float(size))+1;
+gridOffsetX = 0;
+gridOffsetY = 0;
+
+// this goes in draw()
+drawGrid();
+
+// this function is global
+void drawGrid(){
+  for(int x = 0 ; x < gridSizeX; x++){
+    int lineX = (x)*size;
+    stroke(127);
+    strokeWeight(0.5);
+    line(lineX,0,lineX,height);
+  }
+  for(int y = 0 ; y < gridSizeY; y++){
+    int lineY = (y)*size;
+    stroke(127);
+    strokeWeight(0.5);
+    line(0,lineY,width,lineY);
+  }
+}
+```
 
 ## Review of Classes
 
