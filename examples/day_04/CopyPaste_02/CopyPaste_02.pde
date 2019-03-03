@@ -8,8 +8,6 @@ int size = 64;
 
 int gridSizeX;
 int gridSizeY;
-int gridOffsetX;
-int gridOffsetY;
 
 void setup() {
   size(500, 500, P2D);
@@ -21,8 +19,6 @@ void setup() {
 
   gridSizeX = int(width/float(size))+1;
   gridSizeY = int(height/float(size))+1;
-  gridOffsetX = 0;
-  gridOffsetY = 0;
 }
 
 void draw() {
@@ -46,16 +42,17 @@ void draw() {
 }
 
 void drawGrid() {
+  stroke(127);
+  strokeWeight(0.5);
+  
   for (int x = 0; x < gridSizeX; x++) {
     int lineX = (x)*size;
-    stroke(127);
-    strokeWeight(0.5);
     line(lineX, 0, lineX, height);
   }
+  
+  
   for (int y = 0; y < gridSizeY; y++) {
     int lineY = (y)*size;
-    stroke(127);
-    strokeWeight(0.5);
     line(0, lineY, width, lineY);
   }
 }

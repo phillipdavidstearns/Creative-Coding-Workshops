@@ -4,28 +4,70 @@ PImage img;
 float copy_x;
 float copy_y;
 
+float copy_sX;
+float copy_sY;
+
 float paste_x;
 float paste_y;
+
+float paste_sX;
+float paste_sY;
 
 int size = 64;
 
 void setup() {
   size(500, 500);
   img = loadImage("images/windows_xp_bliss-wide.jpg");
+  
   copy_x = 0;
   copy_y = 0;
   paste_x = width/2;
   paste_y = height/2;
+  
+  copy_sX=random(-3,3);
+  copy_sY=random(-3,3);
+  
+  paste_sX=random(-3,3);
+  paste_sY=random(-3,3);
+  
 }
 
 void draw() {
+  
+  //size = int(random(1,128));
+  
+  //size = int(mouseY*0.5);
 
-  copy_x = mouseX;
-  copy_y = mouseY;
+  copy_x = wrapAroundScreenX( copy_x + copy_sX, img.width);
+  copy_y = wrapAroundScreenY( copy_y + copy_sY, img.height);
+  
+  //copy_x = random(img.width);
+  //copy_y = random(img.height);
+  
+  //paste_x = wrapAroundScreenX( paste_x + paste_sX, width);
+  //paste_y = wrapAroundScreenY( paste_y + paste_sY, height);
+  
+  //paste_x = wrapAroundScreenX( paste_x + random(-3,3), width);
+  //paste_y = wrapAroundScreenY( paste_y + random(-3,3), height);
 
   setImageRegion(paste_x, paste_y, getImageRegion(copy_x, copy_y, size, img), img);
 
   image(img, 0, 0);
+  //image(getImageRegion(copy_x, copy_y, size, img),0,0);
+  stroke(0);
+  strokeWeight(0.5);
+  noFill();
+  square(copy_x, copy_y, size);
+}
+
+
+
+float wrapAroundScreenX(float _x, float _width){
+  return (_x + _width) % _width;
+}
+
+float wrapAroundScreenY(float _y, float _height){
+  return (_y + _height) % _height;
 }
 
 // returns a region in an image
