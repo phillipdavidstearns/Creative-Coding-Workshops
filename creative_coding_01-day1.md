@@ -584,7 +584,7 @@ Analyzing a composition...
 
 ![](images/analysis.jpg)
 
-...is kinds of like analyzing stocks.
+...is kind of like analyzing stocks.
 
 ![](images/stock-analysis.jpg)
 

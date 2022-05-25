@@ -14,7 +14,7 @@ In 2005, a post in [MATLAB central](https://www.mathworks.com/matlabcentral/file
 
 In 2009, Kim Asendorf posted an image created by sorting the pixels of an entire image with the title: [Sorted Pixels: Processing Experiment](http://kimasendorf.tumblr.com/post/201238295/sorted-pixels-processing-experiment)
 
-In 2010, a post in the [DreamInCode.net Forum](https://www.dreamincode.net/forums/topic	/152391-sorting-array-of-pixels/), contains code for a pixel sorting algorithm in progress. The task isn't image processing, but statistical analysis. Not for art, for analysis. No mention of Kim, but...
+In 2010, a post in the [DreamInCode.net Forum](https://www.dreamincode.net/forums/topic/152391-sorting-array-of-pixels/), contains code for a pixel sorting algorithm in progress. The task isn't image processing, but statistical analysis. Not for art, for analysis. No mention of Kim, but...
 
 ![](images/mountain.jpg)
 
